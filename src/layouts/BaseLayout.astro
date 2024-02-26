@@ -1,16 +1,44 @@
 ---
+import "../css/app.css";
+import Navbar from "../components/Navbar.astro";
 
+const projectName = "Cyberstuff I/0";
+const { pageTitle } = Astro.props;
 ---
 
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>Cyberstuff.io</title>
-    </head>
-    <body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="generator" content={Astro.generator} />
+    <script is:inline>
+      // prevents FART
+      const root = document.documentElement;
+      if (
+        (window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches &&
+          localStorage.getItem("themeMode") !== "light") ||
+        localStorage.getItem("themeMode") === "dark"
+      ) {
+        // dark mode is preferred
+        root.classList.add("dark");
+        localStorage.setItem("themeMode", "dark");
+      } else {
+        // light mode is preferred
+        root.classList.remove("dark");
+        localStorage.setItem("themeMode", "light");
+      }
+    </script>
+    <title>{pageTitle} - cyberstuff.io</title>
+  </head>
+  <body class="bg-background text-text">
+    <div class="max-w-screen-lg flex flex-col mx-auto">
+      <Navbar projectName={projectName} />
+      <div class="prose dark:prose-invert">
         <slot />
-    </body>
+      </div>
+    </div>
+  </body>
 </html>

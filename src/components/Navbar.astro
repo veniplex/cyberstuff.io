@@ -1,0 +1,37 @@
+---
+import ThemeModeSwitch from "./ThemeModeSwitch.astro";
+
+const { projectName } = Astro.props;
+const links = [
+  {
+    name: "Home",
+    link: ""
+  },
+  {
+    name: "Blog",
+    link: "blog"
+  },
+  {
+    name: "About",
+    link: "about"
+  }
+];
+---
+
+<nav class="flex flex-row justify-between my-4 font-semibold">
+  <h1>{projectName}</h1>
+  <ul class="flex flex-row gap-4">
+    {
+      links.map((item) => (
+        <li>
+          <a href={item.link} class="hover:text-primary">
+            {item.name}
+          </a>
+        </li>
+      ))
+    }
+    <li>
+      <ThemeModeSwitch />
+    </li>
+  </ul>
+</nav>

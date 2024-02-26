@@ -1,0 +1,19 @@
+/* base.css for TailwindCSS is automatically imported by Astro on every page: https://docs.astro.build/en/guides/integrations-guide/tailwind/ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --color-background: #ffffff;
+        --color-text: #000000;
+        --color-primary: #dfab3c;
+    }
+
+    :root[class~="dark"] {
+        --color-background: #000000;
+        --color-text: #ffffff;
+        --color-primary: #32aa56;
+    }
+}
