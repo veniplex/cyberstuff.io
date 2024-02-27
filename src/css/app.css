@@ -6,14 +6,10 @@
 
 @layer base {
     :root {
-        --color-background: #ffffff;
-        --color-text: #000000;
-        --color-primary: #dfab3c;
+        --color-primary: #00b96c;
     }
 
     :root[class~="dark"] {
-        --color-background: #000000;
-        --color-text: #ffffff;
-        --color-primary: #32aa56;
+        --color-primary: #00ff95;
     }
 }

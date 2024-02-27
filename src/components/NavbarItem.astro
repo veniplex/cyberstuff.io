@@ -1,0 +1,14 @@
+---
+const { link, name } = Astro.props;
+
+const isCurrentUrl = Astro.url.pathname === link ? true : false;
+---
+
+<li>
+  <a href={link} class=`group transition duration-300 hover:text-primary`>
+    {name}
+    <span
+      class=`block mt-[-3px] max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-primary ${isCurrentUrl ? "max-w-full" : ""}`
+    ></span>
+  </a>
+</li>

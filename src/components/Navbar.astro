@@ -1,35 +1,24 @@
 ---
 import ThemeModeSwitch from "./ThemeModeSwitch.astro";
+import NavbarItem from "./NavbarItem.astro";
 
 const { projectName } = Astro.props;
 const links = [
   {
     name: "Home",
-    link: ""
-  },
-  {
-    name: "Blog",
-    link: "blog"
+    link: "/",
   },
   {
     name: "About",
-    link: "about"
-  }
+    link: "/about",
+  },
 ];
 ---
 
-<nav class="flex flex-row justify-between my-4 font-semibold">
-  <h1>{projectName}</h1>
-  <ul class="flex flex-row gap-4">
-    {
-      links.map((item) => (
-        <li>
-          <a href={item.link} class="hover:text-primary">
-            {item.name}
-          </a>
-        </li>
-      ))
-    }
+<nav class="flex flex-row justify-between items-center my-4 font-semibold">
+  <h1 class="text-3xl font-bold">{projectName}</h1>
+  <ul class="flex flex-row items-center gap-4 text-lg">
+    {links.map((item) => <NavbarItem name={item.name} link={item.link} />)}
     <li>
       <ThemeModeSwitch />
     </li>
