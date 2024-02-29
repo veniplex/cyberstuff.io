@@ -7,3 +7,4 @@ This is the repository for [cyberstuff.io](https://cyberstuff.io). The site prov
 This site is using the following technologies:
 - Astro
 - TailwindCSS + Typography plugin
+- https://heroicons.com/solid
